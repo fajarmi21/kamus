@@ -9,6 +9,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+require_once(APPPATH . '../vendor/autoload.php');
 /**
  * Class BaseController
  *
@@ -48,5 +49,7 @@ class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $this->request = \Config\Services::request();
+        $this->builder = \Config\Database::connect();
     }
 }
