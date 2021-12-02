@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1117019/public_html/kamus/
+    - /bin/cp -R * $DEPLOYPATH.
