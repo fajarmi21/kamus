@@ -11,6 +11,7 @@ class Home extends BaseController
 
     public function all()
     {
+        $array = array();
         $sql = $this->builder->table('kamus')
             ->join('jenis', 'kamus.jenis = jenis.id_jenis');
         if ($this->request->getPost('find') != null || $this->request->getPost('find') != "") {
