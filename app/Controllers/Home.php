@@ -26,7 +26,8 @@ class Home extends BaseController
                 ->orLike('kamus.b_indo', $this->request->getPost('find'), 'both')
                 ->get()->getResultArray();
         } else {
-            $array = $sql->get()->getResultArray();
+            $array['jenis'] = $sql->select('jenis.b_ing, jenis.b_ind')->get()->getResultArray();
+            $array['kamus'] = $sql->select('kamus.b_inggris, kamus.b_indo')->get()->getResultArray();
 
         }
         echo json_encode($array);
