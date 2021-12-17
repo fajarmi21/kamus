@@ -26,7 +26,7 @@ class Home extends BaseController
                 ->orLike('kamus.b_indo', $this->request->getPost('find'), 'both')
                 ->get()->getResultArray();
         } else {
-            $array['jenis'] = $sql->select('jenis.*')->get()->getResultArray();
+            $array['jenis'] = $sql->select('DISTINCT(jenis.*)')->get()->getResultArray();
             $array['kamus'] = $sql->select('kamus.*')->get()->getResultArray();
         }
         echo json_encode($array);
