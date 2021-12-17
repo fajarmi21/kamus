@@ -25,7 +25,7 @@ class Home extends BaseController
             ->orLike('kamus.b_indo', $this->request->getPost('find'), 'both')
             ->get()->getResultArray();
         }
-        echo json_encode($sql);
+        echo json_encode($array);
     }
 
     public function find()
