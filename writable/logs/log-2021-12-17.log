@@ -1,0 +1,18 @@
+CRITICAL - 2021-12-17 00:00:41 --> Undefined variable: array
+#0 B:\installer\laragon\www\kamus\app\Controllers\Home.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'B:\\installer\\la...', 23, Array)
+#1 B:\installer\laragon\www\kamus\system\CodeIgniter.php(824): App\Controllers\Home->all()
+#2 B:\installer\laragon\www\kamus\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 B:\installer\laragon\www\kamus\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 B:\installer\laragon\www\kamus\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2021-12-17 00:04:12 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-12-17 00:04:12 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+#0 B:\installer\laragon\www\kamus\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 B:\installer\laragon\www\kamus\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 B:\installer\laragon\www\kamus\app\Controllers\Home.php(24): CodeIgniter\Database\BaseBuilder->get()
+#3 B:\installer\laragon\www\kamus\system\CodeIgniter.php(824): App\Controllers\Home->all()
+#4 B:\installer\laragon\www\kamus\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 B:\installer\laragon\www\kamus\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 B:\installer\laragon\www\kamus\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
