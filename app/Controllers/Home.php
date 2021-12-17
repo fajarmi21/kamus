@@ -16,7 +16,7 @@ class Home extends BaseController
             ->join('jenis', 'kamus.jenis = jenis.id_jenis');
         if ($this->request->getPost('find') !== null || $this->request->getPost('find') != "") {
             $array['jenis'] = $sql
-                ->select('DISTINCT jenis.*')
+                ->select('DISTINCT(jenis.*)')
                 ->like('kamus.b_inggris', $this->request->getPost('find'), 'both')
                 ->orLike('kamus.b_indo', $this->request->getPost('find'), 'both')
                 ->get()->getResultArray();
