@@ -12,12 +12,20 @@ class Home extends BaseController
     public function all()
     {
         $sql = $this->builder->table('kamus')
-        ->join('jenis', 'kamus.jenis = jenis.id_jenis');
+            ->join('jenis', 'kamus.jenis = jenis.id_jenis');
         if ($this->request->getPost('find') != null || $this->request->getPost('find') != "") {
-            $sql->like('kamus.b_inggris', $this->request->getPost('find'), 'both')
-                ->orLike('kamus.b_indo', $this->request->getPost('find'), 'both');
+            $array['jenis'] = $sql
+            ->select('jenis.b_ing, jenis.b_ind')
+            ->like('kamus.b_inggris', $this->request->getPost('find'), 'both')
+            ->orLike('kamus.b_indo', $this->request->getPost('find'), 'both')
+            ->get()->getResultArray();
+            $array['kamus'] = $sql
+            ->select('kamus.b_inggris, kamus.b_indo')
+            ->like('kamus.b_inggris', $this->request->getPost('find'), 'both')
+            ->orLike('kamus.b_indo', $this->request->getPost('find'), 'both')
+            ->get()->getResultArray();
         }
-        echo json_encode($sql->get()->getResultArray());
+        echo json_encode($sql);
     }
 
     public function find()
