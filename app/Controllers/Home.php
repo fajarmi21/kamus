@@ -25,10 +25,11 @@ class Home extends BaseController
                 ->select('kamus.*')
                 ->like('kamus.b_inggris', $this->request->getPost('find'), 'both')
                 ->orLike('kamus.b_indo', $this->request->getPost('find'), 'both')
+                ->orderBy('kamus.b_inggris', 'ASC')
                 ->get()->getResultArray();
         } else {
             $array['jenis'] = $sql->select('jenis.*')->distinct()->get()->getResultArray();
-            $array['kamus'] = $sql->select('kamus.*')->get()->getResultArray();
+            $array['kamus'] = $sql->select('kamus.*')->orderBy('kamus.b_inggris', 'ASC')->get()->getResultArray();
         }
         echo json_encode($array);
     }
